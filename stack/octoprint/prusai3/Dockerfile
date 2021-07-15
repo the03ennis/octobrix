@@ -13,6 +13,3 @@ RUN pip install \
     "https://github.com/j7126/OctoPrint-Dashboard/archive/master.zip" \
     "https://github.com/OllisGit/OctoPrint-FilamentManager/archive/master.zip" \
     psycopg2
-
-RUN pip install \
-    "https://github.com/SimplyPrint/OctoPrint-Creality2xTemperatureReportingFix/archive/master.zip"

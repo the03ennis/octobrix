@@ -32,11 +32,11 @@ services:
       - 4000:8080
 
   # printer #1 on port 3001
-  ender3v2-00:
-    build: octoprint/ender3v2
-    image: octoprint/ender3v2
+  prusai3-00:
+    build: octoprint/prusai3
+    image: octoprint/prusai3
     volumes:
-      - ender3v2-00-data:/octoprint
+      - prusai3-00-data:/octoprint
     devices:
       - /dev/hub01:/dev/ttyUSB
       - /dev/hub02_cam:/dev/video0
@@ -51,11 +51,11 @@ services:
       - 3001:80
 
   # printer #2 on port 3002
-  ender3v2-01:
+  prusai3-01:
     build: octoprint/ender3v2
     image: octoprint/ender3v2
     volumes:
-      - ender3v2-01-data:/octoprint
+      - prusai3-01-data:/octoprint
     devices:
       - /dev/hub03:/dev/ttyUSB
       - /dev/hub04_cam:/dev/video0
@@ -69,43 +69,6 @@ services:
     ports:
       - 3002:80
 
-  # printer #3 on port 3003
-  cr10v3-00:
-    build: octoprint/default
-    image: octoprint/default
-    volumes:
-      - cr10v3-00-data:/octoprint
-    devices:
-      - /dev/hub05:/dev/ttyUSB
-      - /dev/hub06_cam:/dev/video0
-    environment:
-      - ENABLE_MJPG_STREAMER=true
-      - MJPG_STREAMER_INPUT=-n -f 30 -r 640x480
-    networks:
-      net:
-        ipv4_address: 172.18.0.13
-    restart: always
-    ports:
-      - 3003:80
-
-  # printer #4 on port 3004
-  cr10max-00:
-    build: octoprint/default
-    image: octoprint/default
-    volumes:
-      - cr10max-00-data:/octoprint
-    devices:
-      - /dev/hub07:/dev/ttyUSB
-      - /dev/hub08_cam:/dev/video0
-    environment:
-      - ENABLE_MJPG_STREAMER=true
-      - MJPG_STREAMER_INPUT=-n -f 30 -r 640x480
-    networks:
-      net:
-        ipv4_address: 172.18.0.14
-    restart: always
-    ports:
-      - 3004:80
 
 networks:
   net:
@@ -119,12 +82,8 @@ networks:
 volumes:
   db-data:
     driver: local
-  ender3v2-00-data:
+  prusai3-00-data:
     driver: local
-  ender3v2-01-data:
-    driver: local
-  cr10v3-00-data:
-    driver: local
-  cr10max-00-data:
+  prusai3-01-data:
     driver: local
     
