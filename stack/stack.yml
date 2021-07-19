@@ -39,10 +39,10 @@ services:
       - prusai3-00-data:/octoprint
     devices:
       - /dev/hub01:/dev/ttyUSB
-      - /dev/hub02_cam:/dev/video0
+     # - /dev/hub02_cam:/dev/video0
     environment:
-      - ENABLE_MJPG_STREAMER=true
-      - MJPG_STREAMER_INPUT=-n -f 30 -r 640x480
+      - ENABLE_MJPG_STREAMER=false
+     # - MJPG_STREAMER_INPUT=-n -f 30 -r 640x480
     networks:
       net:
         ipv4_address: 172.18.0.11
@@ -52,16 +52,16 @@ services:
 
   # printer #2 on port 3002
   prusai3-01:
-    build: octoprint/ender3v2
-    image: octoprint/ender3v2
+    build: octoprint/prusai3
+    image: octoprint/prusai3
     volumes:
       - prusai3-01-data:/octoprint
     devices:
       - /dev/hub03:/dev/ttyUSB
-      - /dev/hub04_cam:/dev/video0
+     # - /dev/hub04_cam:/dev/video0
     environment:
-      - ENABLE_MJPG_STREAMER=true
-      - MJPG_STREAMER_INPUT=-n -f 30 -r 640x480
+      - ENABLE_MJPG_STREAMER=false
+     # - MJPG_STREAMER_INPUT=-n -f 30 -r 640x480
     networks:
       net:
         ipv4_address: 172.18.0.12
