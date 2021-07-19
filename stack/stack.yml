@@ -11,6 +11,8 @@ services:
       net:
         ipv4_address: 172.18.0.2
     restart: always
+    stdin_open: true
+    tty: true
     environment:
       POSTGRES_USER: octoprint
       POSTGRES_PASSWORD: octoprint
@@ -21,6 +23,8 @@ services:
   # database administrator on port 4000 for filament_manager (comment if not needed)
   dbadmin:
     image: adminer
+    stdin_open: true
+    tty: true
     environment:
       - ADMINER_DESIGN='nette'
       - ADMINER_DEFAULT_SERVER=db
@@ -33,6 +37,8 @@ services:
 
   # printer #1 on port 3001
   prusai3-00:
+    stdin_open: true
+    tty: true
     build: octoprint/prusai3
     image: octoprint/prusai3
     volumes:
@@ -54,6 +60,8 @@ services:
   prusai3-01:
     build: octoprint/prusai3
     image: octoprint/prusai3
+    stdin_open: true
+    tty: true
     volumes:
       - prusai3-01-data:/octoprint
     devices:
