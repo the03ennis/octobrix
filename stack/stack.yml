@@ -38,7 +38,7 @@ services:
     volumes:
       - prusai3-00-data:/octoprint
     devices:
-      - /dev/hub01:/dev/ttyUSB
+      - /dev/printer0:/dev/ttyUSB
      # - /dev/hub02_cam:/dev/video0
     environment:
       - ENABLE_MJPG_STREAMER=false
@@ -57,7 +57,7 @@ services:
     volumes:
       - prusai3-01-data:/octoprint
     devices:
-      - /dev/hub03:/dev/ttyUSB
+      - /dev/printer1:/dev/ttyUSB
      # - /dev/hub04_cam:/dev/video0
     environment:
       - ENABLE_MJPG_STREAMER=false
