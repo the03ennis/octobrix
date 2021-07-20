@@ -35,7 +35,7 @@ services:
     ports:
       - 4000:8080
 
-  # printer #1 on port 3001
+  # printer #1 on port 3001: cthulu
   prusai3-00:
     stdin_open: true
     tty: true
@@ -44,7 +44,7 @@ services:
     volumes:
       - prusai3-00-data:/octoprint
     devices:
-      - /dev/printer0:/dev/ttyUSB
+      - /dev/printer1:/dev/ttyUSB
      # - /dev/hub02_cam:/dev/video0
     environment:
       - ENABLE_MJPG_STREAMER=false
@@ -56,7 +56,7 @@ services:
     ports:
       - 3001:80
 
-  # printer #2 on port 3002
+  # printer #2 on port 3002: oswald
   prusai3-01:
     build: octoprint/prusai3
     image: octoprint/prusai3
@@ -65,7 +65,7 @@ services:
     volumes:
       - prusai3-01-data:/octoprint
     devices:
-      - /dev/printer1:/dev/ttyUSB
+      - /dev/printer0:/dev/ttyUSB
      # - /dev/hub04_cam:/dev/video0
     environment:
       - ENABLE_MJPG_STREAMER=false
