@@ -11,4 +11,6 @@ RUN pip install \
     "https://github.com/OllisGit/OctoPrint-DisplayLayerProgress/releases/latest/download/master.zip" \
     "https://github.com/j7126/OctoPrint-Dashboard/archive/master.zip" \
     "https://github.com/FormerLurker/Octolapse/archive/master.zip"\
+    "https://github.com/birkbjo/OctoPrint-Themeify/archive/master.zip"\
+
     psycopg2
