@@ -13,5 +13,4 @@ RUN pip install \
     "https://github.com/FormerLurker/Octolapse/archive/master.zip"\
     "https://github.com/BillyBlaze/OctoPrint-TouchUI/archive/master.zip"\
     "https://github.com/birkbjo/OctoPrint-Themeify/archive/master.zip"\
-
     psycopg2
