@@ -3,37 +3,37 @@ version: '2.4'
 services:
 
   # database for filament_manager plugin (comment if not needed, you may also remove this plugin from printers dockerfiles)
-  db:
-    image: postgres
-    volumes:
-      - db-data:/var/lib/postgresql/data
-    networks:
-      net:
-        ipv4_address: 172.18.0.2
-    restart: always
-    stdin_open: true
-    tty: true
-    environment:
-      POSTGRES_USER: octoprint
-      POSTGRES_PASSWORD: octoprint
-      POSTGRES_DB: octoprint_filamentmanager
-    ports:
-      - 5432:5432
+  #db:
+  #  image: postgres
+  #  volumes:
+  #    - db-data:/var/lib/postgresql/data
+  #  networks:
+  #    net:
+  #      ipv4_address: 172.18.0.2
+  #  restart: always
+  #  stdin_open: true
+  #  tty: true
+  #  environment:
+  #    POSTGRES_USER: octoprint
+  #    POSTGRES_PASSWORD: octoprint
+  #    POSTGRES_DB: octoprint_filamentmanager
+  #  ports:
+  #    - 5432:5432
 
   # database administrator on port 4000 for filament_manager (comment if not needed)
-  dbadmin:
-    image: adminer
-    stdin_open: true
-    tty: true
-    environment:
-      - ADMINER_DESIGN='nette'
-      - ADMINER_DEFAULT_SERVER=db
-    networks:
-      net:
-        ipv4_address: 172.18.0.3    
-    restart: always
-    ports:
-      - 4000:8080
+  #dbadmin:
+  #  image: adminer
+  #  stdin_open: true
+  #  tty: true
+  #  environment:
+  #    - ADMINER_DESIGN='nette'
+  #    - ADMINER_DEFAULT_SERVER=db
+  #  networks:
+  #    net:
+  #      ipv4_address: 172.18.0.3    
+  #  restart: always
+  #  ports:
+  #    - 4000:8080
 
   # printer #1 on port 3001
   prusai3-00:
@@ -88,8 +88,8 @@ networks:
           gateway: 172.18.0.1
 
 volumes:
-  db-data:
-    driver: local
+  #db-data:
+  #  driver: local
   prusai3-00-data:
     driver: local
   prusai3-01-data:
