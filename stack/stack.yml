@@ -78,6 +78,9 @@ services:
       - 3002:80
     
   mongodb:
+    networks:
+      net:
+        ipv4_address: 172.18.0.14
     image: mongo:4.4
     container_name: mongodb
     environment:
@@ -93,6 +96,9 @@ services:
     restart: always
 
   octofarm:
+    networks:
+      net:
+        ipv4_address: 172.18.0.13
     container_name: octofarm
     # choose octofarm/octofarm:latest or octofarm/octofarm:alpine-latest    
     image: octofarm/octofarm:latest
