@@ -90,7 +90,7 @@ services:
     volumes:
     # Local volume (change to mongodb-data for a named volume folder)
     - ./mongodb-data:/data/db
-    restart: unless_stopped
+    restart: always
 
   octofarm:
     container_name: octofarm
@@ -101,7 +101,7 @@ services:
     ports:
     - 80:4000 # port of SYSTEM : port of CONTAINER
     environment:
-    - MONGO=mongodb://MONGO_ROOTUSER_HERE:MONGO_PASSWORD_HERE@mongodb:27017/octofarm?authSource=admin
+    - MONGO=mongodb://suff:1833@mongodb:27017/octofarm?authSource=admin
     volumes:
     # Volumes as local relative folders (validate with 'docker-compose config')
     - ./OctoFarm/logs:/app/logs
